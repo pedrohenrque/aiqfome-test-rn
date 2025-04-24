@@ -6,20 +6,10 @@ export const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center'
   },
-  headerContainer: {
+  productList: {
+    flex: 1,
     width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  iconContent: {
-    flexDirection: 'row'
-  },
-  headerText: {
-    fontSize: 16,
-    fontWeight: '600'
-  },
-  input: {
-    marginTop: 12
+    marginTop: 20,
+    marginVertical: 50
   }
 })
