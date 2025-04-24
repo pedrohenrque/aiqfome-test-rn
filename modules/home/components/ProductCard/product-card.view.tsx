@@ -1,5 +1,5 @@
+import { ExpoIcon } from '@/components'
 import { formatCurrencyToBRL } from '@/utils/formatCurrencyToBRL'
-import { Ionicons } from '@expo/vector-icons'
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { ProductProps } from '../../home.type'
@@ -24,7 +24,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <View style={styles.imageContainer}>
         <Image source={{ uri: imageUrl }} style={styles.image} />
         <TouchableOpacity style={styles.heartIcon} onPress={onToggleFavorite}>
-          <Ionicons
+          <ExpoIcon
+            iconSet="Ionicons"
             name={isFavorite ? 'heart' : 'heart-outline'}
             size={20}
             color="red"
