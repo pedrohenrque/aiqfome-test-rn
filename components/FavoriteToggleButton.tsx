@@ -1,6 +1,6 @@
-import { Ionicons } from '@expo/vector-icons'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { ExpoIcon } from './ExpoIcon'
 
 interface FavoriteToggleButtonProps {
   showOnlyFavorites: boolean
@@ -13,14 +13,17 @@ export function FavoriteToggleButton({
 }: FavoriteToggleButtonProps) {
   return (
     <TouchableOpacity style={styles.button} onPress={onToggle}>
-      <Ionicons
+      <ExpoIcon
+        iconSet="Ionicons"
         name={showOnlyFavorites ? 'heart' : 'heart-outline'}
         size={20}
         color={showOnlyFavorites ? 'red' : '#444'}
         style={styles.icon}
       />
       <Text style={styles.text}>
-        {showOnlyFavorites ? 'Mostrar todos' : 'Somente favoritos'}
+        {showOnlyFavorites
+          ? 'Mostrar todos os Produtos'
+          : 'Mostrar somente favoritos'}
       </Text>
     </TouchableOpacity>
   )
@@ -34,14 +37,15 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 24,
-    marginVertical: 12
+    marginVertical: 12,
+    borderWidth: 1,
+    borderColor: '#ddd'
   },
   icon: {
     marginRight: 6
   },
   text: {
     fontSize: 14,
-    color: '#444',
     fontWeight: '500'
   }
 })
