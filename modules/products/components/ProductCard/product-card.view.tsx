@@ -1,8 +1,8 @@
 import { ExpoIcon } from '@/components'
+import { ProductProps } from '@/services/Products/product.type'
 import { formatCurrencyToBRL } from '@/utils/formatCurrencyToBRL'
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
-import { ProductProps } from '../../home.type'
 import { styles } from './product-card.styles'
 
 interface ProductCardProps extends ProductProps {
@@ -10,15 +10,17 @@ interface ProductCardProps extends ProductProps {
   isFavorite?: boolean
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
-  title,
-  price,
-  rating,
-  reviews,
-  imageUrl,
-  onToggleFavorite,
-  isFavorite = false
-}) => {
+export function ProductCard(props: ProductCardProps) {
+  const {
+    title,
+    price,
+    rating,
+    reviews,
+    imageUrl,
+    onToggleFavorite,
+    isFavorite = false
+  } = props
+
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
@@ -48,5 +50,3 @@ const ProductCard: React.FC<ProductCardProps> = ({
     </View>
   )
 }
-
-export default ProductCard

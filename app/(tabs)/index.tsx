@@ -1,5 +1,5 @@
 import { SafeAreaContainer } from '@/components'
-import { Home } from '@/modules/home/home.view'
+import { Home } from '@/modules'
 
 export default function App() {
   return (
