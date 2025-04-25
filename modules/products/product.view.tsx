@@ -9,19 +9,6 @@ import { IProduct } from './product.type'
 export function ProductView(props: IProduct) {
   const { handleShowFavorites, onToggle, products, toggleFavorite } = props
 
-  const renderItem = ({ item }: { item: ProductProps }) => (
-    <ProductCard
-      id={item.id}
-      title={item.title}
-      price={item.price}
-      rating={item.rating}
-      imageUrl={item.imageUrl}
-      isFavorite={item.isFavorite}
-      reviews={item.reviews}
-      onToggleFavorite={() => toggleFavorite(item)}
-    />
-  )
-
   return (
     <View style={styles.container}>
       <FavoriteToggleButton
@@ -30,9 +17,21 @@ export function ProductView(props: IProduct) {
       />
       <FlatList
         data={products}
-        renderItem={renderItem}
         keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
         style={styles.productList}
+        renderItem={({ item }: { item: ProductProps }) => (
+          <ProductCard
+            id={item.id}
+            title={item.title}
+            price={item.price}
+            rating={item.rating}
+            imageUrl={item.imageUrl}
+            isFavorite={item.isFavorite}
+            reviews={item.reviews}
+            onToggleFavorite={() => toggleFavorite(item)}
+          />
+        )}
       />
     </View>
   )
