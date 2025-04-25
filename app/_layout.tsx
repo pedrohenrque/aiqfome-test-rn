@@ -1,3 +1,4 @@
+import { NotificationProvider } from '@/hooks/Notifications/notification.provider'
 import { asyncStorage, initializeStorage } from '@/infra/AsyncStorage'
 import { useFonts } from 'expo-font'
 import { Stack } from 'expo-router'
@@ -25,12 +26,12 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <NotificationProvider>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
-    </>
+    </NotificationProvider>
   )
 }
